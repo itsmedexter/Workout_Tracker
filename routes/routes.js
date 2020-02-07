@@ -17,11 +17,11 @@ router.get("/stats", (req, res) => {
 
 
 // * Add exercises to a previous workout plan.!!!!!!!!!!!
-app.post("/submit", ({body}, res) => {
-    db.Book.create(body)
-      .then(({_id}) => db.Library.findOneAndUpdate({}, { $push: { books: _id } }, { new: true }))
-      .then(dbLibrary => {
-        res.json(dbLibrary);
+router.put("/api/workouts/:id", ({body}, res) => {
+    Exercise.create(body)
+      .then(({_id}) => db.Library.findOneAndUpdate({}, { $push: { exercise: _id } }, { new: true }))
+      .then(dbExercise => {
+        res.json(dbExercise);
       })
       .catch(err => {
         res.json(err);
@@ -136,14 +136,13 @@ router.put("/api/workouts/:id", (req, res) => {
 
 
 
+// test
 
 
 
 
 
-
-
-
+// test
 
 
 
@@ -181,7 +180,7 @@ router.get("/api/workouts/range", (req, res) => {
     Exercise.find({})
     .sort({ date: -1})
     .then(dbExercise => {
-        res.json(dbExercise);
+        res.json(dbExercise).popu;
     })
     .catch(err => {
         res.status(400).json(err);

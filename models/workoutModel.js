@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const exerciseSchema = new Schema({
-    exercise: [{
+    exercises: [{
     type: {
         type: String,
         trim: true,
@@ -38,7 +38,8 @@ const exerciseSchema = new Schema({
     date: { 
         type: Date,
         default: Date.now
-    }
+    },
+    lastUpdated: Date
 
 });
 
