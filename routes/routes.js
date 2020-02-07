@@ -17,10 +17,12 @@ router.get("/stats", (req, res) => {
 
 
 // * Add exercises to a previous workout plan.!!!!!!!!!!!
-router.put("/api/workouts/:id", ({body}, res) => {
-    Exercise.create(body)
-      .then(({_id}) => db.Library.findOneAndUpdate({}, { $push: { exercise: _id } }, { new: true }))
+router.put("/api/workouts/:id", (req, res) => {
+    console.log(req.body);
+       Exercise.findOneAndUpdate({_id: req.params.id}, { $push: { exercises: req.body }, $inc: {totalDuration: req.body.duration} }, { new: true })
       .then(dbExercise => {
+          console.log("some string");
+          console.log(dbExercise);
         res.json(dbExercise);
       })
       .catch(err => {
@@ -29,7 +31,7 @@ router.put("/api/workouts/:id", ({body}, res) => {
   });
 
 
-
+  
 
 
 // router.put("/api/workouts/:id", (req, res) => {
@@ -76,12 +78,10 @@ router.put("/api/workouts/:id", ({body}, res) => {
 
 
 //   * Add new exercises to a new workout plan.
-
 router.post("/api/workouts", function(req, res)  {
     console.log("Inside post workout");
     console.log(req.body);
-    Exercise.create(req.body)
-    .then(({ _id }) => Exercise.findOneAndUpdate({}, { $push: { exercise: _id } }, { new: true}))
+    Exercise.create({day: Date.now()})
     .then(dbExercise => {
         res.json(dbExercise);
     })
@@ -91,26 +91,52 @@ router.post("/api/workouts", function(req, res)  {
 });
 
 
+// old post 
+// router.post("/api/workouts", function(req, res)  {
+//     console.log("Inside post workout");
+//     console.log(req.body);
+//     Exercise.create(req.body)
+//     .then(({ _id }) => Exercise.findOneAndUpdate({}, { $push: { exercises: req.body } }, { new: true}))
+//     //   * findOneAndUpdate({!!!!!!!}) id
+//     .then(dbExercise => {
+//         res.json(dbExercise);
+//     })
+//     .catch(err => {
+//         res.json(err);
+//     });
+// });
 
 
 
 
 //   * View multiple the combined weight of multiple exercises on the `stats` page.
 router.get("/api/workouts", (req, res) => {
-    Exercise.find(
-        {
-        },
-        (error, data) => {
-          if (error) {
-            res.send(error);
-        }   else { 
-            console.log("Inside get workout");
-            console.log(data);
-            res.send(data);
-                 }
-        }
-    );
+    Exercise.find({})
+        // .populate("exercises") if you have only one model, do not populate to more
+        .then(Exercises => {
+            res.json(Exercises)
+        })
+        .catch(err =>{
+            res.json(err);
+        });
 });
+
+// Old get
+// router.get("/api/workouts", (req, res) => {
+//     Exercise.find(
+//         {
+//         },
+//         (error, data) => {
+//           if (error) {
+//             res.send(error);
+//         }   else { 
+//             console.log("Inside get workout");
+//             console.log(data);
+//             res.send(data);
+//                  }
+//         }
+//     );
+// });
 
 
 
@@ -120,18 +146,18 @@ router.get("/api/workouts", (req, res) => {
 // create put route for /api/workouts/:id" + id
 // how am I get find one and update findbyidandupdate
 
-router.put("/api/workouts/:id", (req, res) => {
-    console.log(req.body);
-    Exercise.findByIdAndUpdate(req.params.id, req.body,
-        (error, data) => {
-            if (error) {
-                res.send(error);
-            } else {
-                res.send(data);
-            }
-        }
-    );
-});
+// router.put("/api/workouts/:id", (req, res) => {
+//     console.log(req.body);
+//     Exercise.findByIdAndUpdate(req.params.id, req.body,
+//         (error, data) => {
+//             if (error) {
+//                 res.send(error);
+//             } else {
+//                 res.send(data);
+//             }
+//         }
+//     );
+// });
 
 
 
@@ -148,17 +174,17 @@ router.put("/api/workouts/:id", (req, res) => {
 
 
 // POST /api/workout add workout?????? /api/workouts
-router.post("/api/workouts", (req, res) => { 
-    console.log("/api/workouts/inside")
-    console.log(req.body);
-    Exercise.create(body)
-        .then(dbExercise => {
-            res.json(dbExercise);
-        })
-        .catch(err => {
-            res.status(400).json(err);
-        });
-});
+// router.post("/api/workouts", (req, res) => { 
+//     console.log("/api/workouts/inside")
+//     console.log(req.body);
+//     Exercise.create(body)
+//         .then(dbExercise => {
+//             res.json(dbExercise);
+//         })
+//         .catch(err => {
+//             res.status(400).json(err);
+//         });
+// });
 
 
 // Look at public > api.js
@@ -178,14 +204,25 @@ router.post("/api/workouts", (req, res) => {
 // /api/workouts !!!!!!!!
 router.get("/api/workouts/range", (req, res) => {
     Exercise.find({})
-    .sort({ date: -1})
     .then(dbExercise => {
-        res.json(dbExercise).popu;
+        console.log("some string2");
+        console.log(dbExercise);
+        res.json(dbExercise);
     })
     .catch(err => {
         res.status(400).json(err);
     });
 });
+
+//     app.get("/api/workouts/range", (req, res) => {
+//         db.Work.find({})
+//         .populate("exercises")
+//         .then(dbWorkout => {
+//             res.json(dbWorkout);
+//         })
+//         .catch(err => {
+//             res.json(err)
+//         })
 
 
 module.exports = router;
@@ -198,3 +235,8 @@ module.exports = router;
 //   * Add new exercises to a new workout plan.
 
 //   * View multiple the combined weight of multiple exercises on the `stats` page.
+
+
+
+
+

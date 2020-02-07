@@ -35,12 +35,13 @@ const exerciseSchema = new Schema({
         required: "How many reps"
     }
     }],
-    date: { 
-        type: Date,
-        default: Date.now
+    day: { 
+        type: Date
     },
-    lastUpdated: Date
-
+    totalduration:{
+        type: Number,
+        default: 0
+    }
 });
 
 const Exercise = mongoose.model("Exercise", exerciseSchema);
