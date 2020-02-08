@@ -13,7 +13,7 @@ At first, I thought I knew routes. This assignment showed I didn't, well the Mon
 ![OMG](seeders/schema.jpg)
 ![OMG](seeders/workoutjs.jpg)
 
-I ask Kerwin, why am I not getting the logging information. I was going to rip my hair on what he said. Look at line 12 on the workout.js, then look at the name of your schema. I was missing a "s" on the schema name "exercise".
+I ask Kerwin, why am I not getting the logging information. I was going to rip my hair on what he said. Look at line 12 on the workout.js, then look at the name of your schema. I was missing a "s" on the array name "exercise".
 
 ## Getting Started
 
