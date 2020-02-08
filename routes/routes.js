@@ -31,9 +31,6 @@ router.put("/api/workouts/:id", (req, res) => {
   });
 
 
-  
-
-
 // router.put("/api/workouts/:id", (req, res) => {
 //     console.log("this is string");
 //     console.log(req.body);

@@ -1,13 +1,23 @@
 # Unit 17: Workout Tracker
 
-![After](images/updated_site.gif)
+![Finally! Up and running](seeders/fitness_tracker_17.gif)
 
 I created the backend for the Workout Tracker by using a Mongo database with Mongoose schema and routes with Express. 
 
+## Routes to no where
 
-### Getting Started
+![OMG](seeders/routes1.jpg)
 
-Any web browser can view live link, (https:/xxxxxxxxxxx/). Repository link, (https://github.com/itsmedexter/unit17_Workout_Tracker).
+At first, I thought I knew routes. This assignment showed I didn't, well the Mongo way. For the life of me I couldn't wrap my brain around findOneAndUpdate. Mahisha was a big help on giving me hints on what to read up on and what I'm missing. I was missing the _id: req.params.id and telling it what I wanted to push to the database. Duh, the /api/workouts/:id was a big hint on what I should have done.
+
+![OMG](seeders/schema.jpg)
+![OMG](seeders/workoutjs.jpg)
+
+I ask Kerwin, why am I not getting the logging information. I was going to rip my hair on what he said. Look at line 12 on the workout.js, then look at the name of your schema. I was missing a "s" on the schema name "exercise".
+
+## Getting Started
+
+To get started using the application, use any web browser to view live link, (https:/xxxxxxxxxxx/). Repository link, (https://github.com/itsmedexter/unit17_Workout_Tracker).
 
 ## Technolgies Used
 
