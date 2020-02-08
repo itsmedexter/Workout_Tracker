@@ -17,7 +17,7 @@ I ask Kerwin, why am I not getting the logging information. I was going to rip m
 
 ## Getting Started
 
-To get started using the application, use any web browser to view live link, (https:/xxxxxxxxxxx/). Repository link, (https://github.com/itsmedexter/unit17_Workout_Tracker).
+To get started using the application, use any web browser to view live link, (https://murmuring-reaches-02765.herokuapp.com/?id=5e3e701f8db42c001777a715). Repository link, (https://github.com/itsmedexter/unit17_Workout_Tracker).
 
 ## Technolgies Used
 
@@ -33,7 +33,7 @@ To get started using the application, use any web browser to view live link, (ht
 
 ## Deployed Link
 
-* [See Live Site](xxxxxxxxxxxxxxx)
+* [See Live Site](https://murmuring-reaches-02765.herokuapp.com/?id=5e3e701f8db42c001777a715)
 
 
 ## Authors
