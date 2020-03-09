@@ -1,4 +1,4 @@
-# Unit 17: Workout Tracker
+# Workout Tracker
 
 ![Finally! Up and running](seeders/fitness_tracker_17.gif)
 
@@ -17,7 +17,7 @@ I ask Kerwin, why am I not getting the logging information. I was going to rip m
 
 ## Getting Started
 
-To get started using the application, use any web browser to view live link, (https://murmuring-reaches-02765.herokuapp.com/?id=5e3e701f8db42c001777a715). Repository link, (https://github.com/itsmedexter/unit17_Workout_Tracker).
+To get started using the application, use any web browser to view live link, (https://murmuring-reaches-02765.herokuapp.com/?id=5e3e701f8db42c001777a715). Repository link, (https://github.com/itsmedexter/Workout_Tracker).
 
 ## Technolgies Used
 
@@ -40,7 +40,7 @@ To get started using the application, use any web browser to view live link, (ht
 
 Dexter Valencia 
 
-- [Link to Portfolio Site](https://github.com/itsmedexter/unit17_Workout_Tracker)
+- [Link to Portfolio Site](https://github.com/itsmedexter/Workout_Tracker)
 - [Link to Github](https://github.com/itsmedexter)
 - [Link to LinkedIn](https://www.linkedin.com/in/dextervalencia/)
 
